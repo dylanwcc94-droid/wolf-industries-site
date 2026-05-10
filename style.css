@@ -41,9 +41,19 @@ body {
 /* Logo */
 .logo {
   display: block;
-  margin: 10px auto;   /* minimal spacing above/below */
-  width: 300px;        /* keep logo size */
+  margin: 10px auto;
+  max-width: 200px;   /* ✅ scales down automatically */
+  width: 100%;        /* ✅ fills available space */
+  height: auto;       /* ✅ keeps proportions */
 }
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 600px) {
+  .logo {
+    max-width: 120px; /* ✅ smaller logo on mobile */
+  }
+}
+
 
 /* Hero Section */
 .hero {
