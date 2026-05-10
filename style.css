@@ -42,18 +42,17 @@ body {
 .logo {
   display: block;
   margin: 10px auto;
-  max-width: 200px;   /* ✅ scales down automatically */
-  width: 100%;        /* ✅ fills available space */
+  max-width: 150px;   /* ✅ scales down automatically */
+  width: 90%;        /* ✅ fills available space */
   height: auto;       /* ✅ keeps proportions */
 }
 
 /* Responsive adjustment for smaller screens */
-@media (max-width: 600px) {
+@media (max-width: 300px) {
   .logo {
-    max-width: 10px; /* ✅ smaller logo on mobile */
+    max-width: 1px; /* ✅ smaller logo on mobile */
   }
 }
-
 
 /* Hero Section */
 .hero {
