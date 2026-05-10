@@ -14,20 +14,22 @@ body {
   text-align: center;   /* global centering */
 }
 
-/* Navbar (Sticky) */
+/* Navbar (Sticky + Responsive) */
 .navbar {
   position: sticky;
   top: 0;
-  background:none;
+  background: none;
   padding: 10px;
-  text-align: center;
+  display: flex;              /* ✅ single definition */
+  flex-wrap: wrap;            /* ✅ allows wrapping if space is tight */
+  justify-content: center;    /* ✅ keeps links centered */
+  gap: 15px;                  /* ✅ spacing between links */
   z-index: 1000;
 }
 
 .navbar a {
   color: white;
   text-decoration: none;
-  margin: 0 15px;
   font-weight: bold;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -43,30 +45,17 @@ body {
   display: block;
   margin: 10px auto;
   max-width: 200px;   /* ✅ desktop size */
-  width: 50%;        /* ✅ scales down automatically */
+  width: 100%;        /* ✅ scales down automatically */
   height: auto;       /* ✅ keeps proportions */
 }
 
-  /* Navbar stays horizontal but adapts */
-  .navbar {
-    display: flex;
-    flex-wrap: wrap;          /* ✅ allows wrapping if space is tight */
-    justify-content: center;  /* ✅ keeps links centered */
-    gap: 10px;                /* ✅ spacing between links */
-  }
-
-  .navbar a {
-    font-size: 1rem;          /* ✅ slightly smaller text for mobile */
-    margin: 5px;              /* ✅ tighter spacing */
-  }
-
 /* Hero Section */
 .hero {
-  padding: 40px 20px;  /* consistent vertical rhythm */
+  padding: 40px 20px;
   background: none;
 }
 
-/* Headings (Global Fix for spacing) */
+/* Headings */
 h1, h2, h3 {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -85,7 +74,7 @@ h1, h2, h3 {
 }
 
 .cta-btn:hover {
- background: #218838;
+  background: #218838;
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgb(4, 251, 37);
 }
@@ -174,27 +163,27 @@ footer {
 
 /* Digital Business Cards */
 .cards {
-  text-align: center;        /* ✅ centers headings and text */
+  text-align: center;
 }
 
 .card-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;   /* ✅ centers the grid */
+  justify-content: center;
   gap: 30px;
 }
 
 .card-item {
-  flex: 1 1 250px;           /* responsive sizing */
+  flex: 1 1 250px;
   max-width: 300px;
-  background: none;          /* optional: card background */
+  background: none;
   padding: 20px;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-item:hover {
- background: #218838;
+  background: #218838;
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgb(4, 251, 37);
 }
@@ -209,12 +198,12 @@ footer {
 }
 
 .card-item:hover .card-image {
-  transform: scale(1.05);        /* ✅ zoom-in effect */
-  box-shadow: none;  /* ✅ subtle glow */
+  transform: scale(1.05);
+  box-shadow: none;
 }
 
 .card-item h3, .card-item p {
-  color: #f5f8f5;                /* ✅ White wording */
+  color: #f5f8f5;
 }
 
 /* Gallery */
@@ -249,29 +238,30 @@ footer {
   border-radius: 8px;
   width: 100%;
   max-width: 800px;
-  aspect-ratio: 4 / 3; /* keeps proportions */
+  aspect-ratio: 4 / 3;
 }
 
+/* Contact Info */
 .contact-info {
-  margin: 40px auto;        /* centers the block horizontally */
+  margin: 40px auto;
   display: flex;
-  flex-direction: column;   /* stack vertically */
-  align-items: center;      /* center the whole stack */
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
-  max-width: 400px;         /* keeps stack balanced */
+  max-width: 400px;
 }
 
 .contact-item {
-  width: 100%;              /* ensures consistent width */
+  width: 100%;
   display: flex;
-  justify-content: center;  /* centers each row */
+  justify-content: center;
 }
 
 .contact-item a {
   display: inline-flex;
-  align-items: center;      /* ✅ keeps icon + text aligned */
+  align-items: center;
   gap: 10px;
-  color: #ffffff;           /* wording green */
+  color: #ffffff;
   text-decoration: none;
   font-size: 1.1rem;
 }
@@ -285,12 +275,44 @@ footer {
 .icon {
   width: 22px;
   height: 22px;
-  flex-shrink: 0;           /* prevents icon from resizing */
+  flex-shrink: 0;
 }
 
-/* Responsive adjustment for smaller screens */
-@media (max-width: 600px) {
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .logo {
-    max-width: 20px; /* ✅ smaller logo on mobile */
+    max-width: 120px;
+  }
+
+  .navbar a {
+    font-size: 0.9rem;
+    margin: 5px;
+  }
+
+  .service-card {
+    max-width: 90%; /* ✅ services adapt on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    max-width: 100px;
+  }
+
+  .navbar {
+    gap: 8px;
+  }
+
+  .navbar a {
+    font-size: 0.85rem;
+  }
+
+  .service-card {
+    max-width: 100%; /* ✅ services stack on phones */
+  }
+
+  .card-grid {
+    flex-direction: column; /* ✅ cards stack vertically */
+    align-items: center;
   }
 }
