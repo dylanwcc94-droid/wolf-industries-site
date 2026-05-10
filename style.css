@@ -42,17 +42,24 @@ body {
 .logo {
   display: block;
   margin: 10px auto;
-  max-width: 150px;   /* ✅ scales down automatically */
-  width: 90%;        /* ✅ fills available space */
+  max-width: 200px;   /* ✅ scales down automatically */
+  width: 100%;        /* ✅ fills available space */
   height: auto;       /* ✅ keeps proportions */
 }
 
-/* Responsive adjustment for smaller screens */
-@media (max-width: 300px) {
-  .logo {
-    max-width: 1px; /* ✅ smaller logo on mobile */
+  /* Navbar responsive fix */
+  .navbar {
+    display: flex;
+    flex-direction: column;   /* ✅ stack vertically on mobile */
+    align-items: center;      /* ✅ center items */
+    gap: 10px;                /* ✅ spacing between links */
   }
-}
+
+  .navbar a {
+    display: block;
+    margin: 8px 0;            /* ✅ vertical spacing */
+    font-size: 1.2rem;        /* ✅ slightly larger for touch */
+  }
 
 /* Hero Section */
 .hero {
@@ -282,3 +289,9 @@ footer {
   flex-shrink: 0;           /* prevents icon from resizing */
 }
 
+/* Responsive adjustment for smaller screens */
+@media (max-width: 600px) {
+  .logo {
+    max-width: 120px; /* ✅ smaller logo on mobile */
+  }
+}
