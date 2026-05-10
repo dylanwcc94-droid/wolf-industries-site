@@ -42,23 +42,22 @@ body {
 .logo {
   display: block;
   margin: 10px auto;
-  max-width: 200px;   /* ✅ scales down automatically */
-  width: 100%;        /* ✅ fills available space */
+  max-width: 200px;   /* ✅ desktop size */
+  width: 50%;        /* ✅ scales down automatically */
   height: auto;       /* ✅ keeps proportions */
 }
 
-  /* Navbar responsive fix */
+  /* Navbar stays horizontal but adapts */
   .navbar {
     display: flex;
-    flex-direction: column;   /* ✅ stack vertically on mobile */
-    align-items: center;      /* ✅ center items */
+    flex-wrap: wrap;          /* ✅ allows wrapping if space is tight */
+    justify-content: center;  /* ✅ keeps links centered */
     gap: 10px;                /* ✅ spacing between links */
   }
 
   .navbar a {
-    display: block;
-    margin: 8px 0;            /* ✅ vertical spacing */
-    font-size: 1.2rem;        /* ✅ slightly larger for touch */
+    font-size: 1rem;          /* ✅ slightly smaller text for mobile */
+    margin: 5px;              /* ✅ tighter spacing */
   }
 
 /* Hero Section */
@@ -292,6 +291,6 @@ footer {
 /* Responsive adjustment for smaller screens */
 @media (max-width: 600px) {
   .logo {
-    max-width: 120px; /* ✅ smaller logo on mobile */
+    max-width: 20px; /* ✅ smaller logo on mobile */
   }
 }
