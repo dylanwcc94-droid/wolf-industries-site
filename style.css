@@ -1,0 +1,275 @@
+﻿/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: url("assets/background.jpg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  line-height: 1.6;
+  text-align: center;   /* global centering */
+}
+
+/* Navbar (Sticky) */
+.navbar {
+  position: sticky;
+  top: 0;
+  background:none;
+  padding: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar a:hover {
+  background: #218838;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgb(4, 251, 37);
+}
+
+/* Logo */
+.logo {
+  display: block;
+  margin: 10px auto;   /* minimal spacing above/below */
+  width: 650px;        /* keep logo size */
+}
+
+/* Hero Section */
+.hero {
+  padding: 40px 20px;  /* consistent vertical rhythm */
+  background: none;
+}
+
+/* Headings (Global Fix for spacing) */
+h1, h2, h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* CTA Button */
+.cta-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-btn:hover {
+ background: #218838;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgb(4, 251, 37);
+}
+
+/* Services */
+.services {
+  padding: 40px 20px;
+}
+
+.service-card {
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(2, 253, 15, 0.097);
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+/* Contact */
+.contact {
+  padding: 40px 20px;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact input,
+.contact textarea {
+  margin: 8px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+.contact button {
+  padding: 12px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact button:hover {
+  background: #218838;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgb(4, 251, 37);
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background: none;
+}
+
+/* Drag & Drop Zone */
+#drop-zone {
+  border: 2px dashed white;
+  padding: 30px;
+  margin: 20px auto;
+  background: rgba(0,0,0,0.5);
+  cursor: pointer;
+  max-width: 600px;
+}
+
+#drop-zone:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+#gallery-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+#gallery-display img {
+  width: 220px;
+  border-radius: 8px;
+  border: 2px solid white;
+}
+
+/* Digital Business Cards */
+.cards {
+  text-align: center;        /* ✅ centers headings and text */
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;   /* ✅ centers the grid */
+  gap: 30px;
+}
+
+.card-item {
+  flex: 1 1 250px;           /* responsive sizing */
+  max-width: 300px;
+  background: none;          /* optional: card background */
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-item:hover {
+ background: #218838;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgb(4, 251, 37);
+}
+
+.card-image {
+  width: 100%;
+  max-width: 250px;
+  margin: 10px auto;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-item:hover .card-image {
+  transform: scale(1.05);        /* ✅ zoom-in effect */
+  box-shadow: none;  /* ✅ subtle glow */
+}
+
+.card-item h3, .card-item p {
+  color: #f5f8f5;                /* ✅ White wording */
+}
+
+/* Gallery */
+.gallery {
+  padding: 40px 20px;
+}
+
+.gallery h1 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+  color: white;
+}
+
+/* Bio */
+.bio {
+  padding: 40px 20px;
+}
+
+.bio h1 {
+  margin-bottom: 15px;
+  font-size: 4rem;
+  color: white;
+}
+
+.map-embed {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.map-embed iframe {
+  border: 0;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 4 / 3; /* keeps proportions */
+}
+
+.contact-info {
+  margin: 40px auto;        /* centers the block horizontally */
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  align-items: center;      /* center the whole stack */
+  gap: 20px;
+  max-width: 400px;         /* keeps stack balanced */
+}
+
+.contact-item {
+  width: 100%;              /* ensures consistent width */
+  display: flex;
+  justify-content: center;  /* centers each row */
+}
+
+.contact-item a {
+  display: inline-flex;
+  align-items: center;      /* ✅ keeps icon + text aligned */
+  gap: 10px;
+  color: #ffffff;           /* wording green */
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.contact-item a:hover {
+  background: #218838;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgb(4, 251, 37);
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;           /* prevents icon from resizing */
+}
+
