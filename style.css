@@ -42,7 +42,7 @@ body {
 .logo {
   display: block;
   margin: 10px auto;   /* minimal spacing above/below */
-  width: 650px;        /* keep logo size */
+  width: 300px;        /* keep logo size */
 }
 
 /* Hero Section */
