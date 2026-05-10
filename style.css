@@ -44,7 +44,7 @@ body {
 .logo {
   display: block;
   margin: 10px auto;
-  max-width: 200px;   /* ✅ desktop size */
+  max-width: 600px;   /* ✅ desktop size */
   width: 100%;        /* ✅ scales down automatically */
   height: auto;       /* ✅ keeps proportions */
 }
@@ -296,7 +296,7 @@ footer {
 
 @media (max-width: 480px) {
   .logo {
-    max-width: 100px;
+    max-width: 200px;
   }
 
   .navbar {
