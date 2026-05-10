@@ -50,7 +50,7 @@ body {
 /* Responsive adjustment for smaller screens */
 @media (max-width: 600px) {
   .logo {
-    max-width: 80px; /* ✅ smaller logo on mobile */
+    max-width: 10px; /* ✅ smaller logo on mobile */
   }
 }
 
