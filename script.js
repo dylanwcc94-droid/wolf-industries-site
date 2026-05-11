@@ -36,3 +36,9 @@ if (dropZone) {
     }
   });
 }
+
+// Remove or comment out any code like this:
+const dropZone = document.getElementById("drop-zone");
+dropZone.addEventListener("click", () => {
+  // ...
+});
