@@ -35,21 +35,21 @@
     <div id="gallery-display"></div>
   </section>
 
-  <!-- Script to load images from serverless function -->
-  <script>
-    fetch("/api/gallery")
-      .then(res => res.json())
-      .then(images => {
-        const gallery = document.getElementById("gallery-display");
-        images.forEach(url => {
-          const img = document.createElement("img");
-          img.src = url;
-          img.alt = "Gallery Image";
-          gallery.appendChild(img);
-        });
-      })
-      .catch(err => console.error("Error loading gallery:", err));
-  </script>
+ <!-- Script to load images from serverless function -->
+<script>
+  fetch("/api/gallery")
+    .then(res => res.json())
+    .then(images => {
+      const gallery = document.getElementById("gallery-display");
+      images.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = "Gallery Image";
+        gallery.appendChild(img);
+      });
+    })
+    .catch(err => console.error("Error loading gallery:", err));
+</script>
 
   <!-- Footer -->
   <footer>
