@@ -1,16 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Character encoding -->
   <meta charset="UTF-8">
-
-  <!-- Mobile responsiveness -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Page title -->
   <title>Wolf Industries and Design | Gallery</title>
-
-  <!-- Link to CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,37 +16,31 @@
     <a href="gallery.html">Gallery</a>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <img src="/assets/logo.png" alt="Wolf Industries Logo" class="logo">
-    <h1>Gallery</h1>
-    <p>Explore our latest projects and designs.</p>
-  </header>
-
-  <!-- Gallery Display -->
+  <!-- Gallery Section -->
   <section class="gallery">
+    <h1>Gallery</h1>
     <div id="gallery-display"></div>
   </section>
 
- <!-- Script to load images from serverless function -->
-<script>
-  fetch("/api/gallery")
-    .then(res => res.json())
-    .then(images => {
-      const gallery = document.getElementById("gallery-display");
-      images.forEach(url => {
-        const img = document.createElement("img");
-        img.src = url;
-        img.alt = "Gallery Image";
-        gallery.appendChild(img);
-      });
-    })
-    .catch(err => console.error("Error loading gallery:", err));
-</script>
+  <!-- Script to load images -->
+  <script>
+    fetch("/api/gallery")
+      .then(res => res.json())
+      .then(images => {
+        const gallery = document.getElementById("gallery-display");
+        images.forEach(url => {
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = "Gallery Image";
+          gallery.appendChild(img);
+        });
+      })
+      .catch(err => console.error("Error loading gallery:", err));
+  </script>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Wolf Industries and Design. All rights reserved.</p>
+    <p>© 2026 Wolf Industries and Design. All rights reserved.</p>
   </footer>
 </body>
 </html>
