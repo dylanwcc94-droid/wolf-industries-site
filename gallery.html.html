@@ -8,48 +8,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Page title -->
-  <title>Wolf Industries and Design | Page Name Here</title>
+  <title>Wolf Industries and Design | Gallery</title>
 
   <!-- Link to CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Your page content starts here -->
-
+  <!-- Navigation -->
   <nav class="navbar">
-     <nav>
-  <a href="index.html.html">Home</a>
-  <a href="bio.html.html">Bio</a>
-  <a href="cards.html.html">Cards</a>
-  <a href="contact.html.html">Contact</a>
-  <a href="gallery.html.html">Gallery</a>
-</nav>
+    <a href="index.html.html">Home</a>
+    <a href="bio.html.html">Bio</a>
+    <a href="cards.html.html">Cards</a>
+    <a href="contact.html.html">Contact</a>
+    <a href="gallery.html.html">Gallery</a>
+  </nav>
 
+  <!-- Hero Section -->
+  <header class="hero">
+    <img src="assets/logo.png" alt="Wolf Industries Logo" class="logo">
+    <h1>Gallery</h1>
+    <p>Explore our latest projects and designs.</p>
+  </header>
+
+  <!-- Gallery Display -->
   <section class="gallery">
-  <div id="gallery-display"></div>
-</section>
-
-<script>
-  fetch("/api/gallery")
-    .then(res => res.json())
-    .then(images => {
-      const gallery = document.getElementById("gallery-display");
-      images.forEach(url => {
-        const img = document.createElement("img");
-        img.src = url;
-        img.alt = "Gallery Image";
-        gallery.appendChild(img);
-      });
-    })
-    .catch(err => console.error("Error loading gallery:", err));
-</script>
-
-    <!-- Gallery Display -->
     <div id="gallery-display"></div>
   </section>
 
-  <script src="script.js"></script>
+  <!-- Script to load images from serverless function -->
+  <script>
+    fetch("/api/gallery")
+      .then(res => res.json())
+      .then(images => {
+        const gallery = document.getElementById("gallery-display");
+        images.forEach(url => {
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = "Gallery Image";
+          gallery.appendChild(img);
+        });
+      })
+      .catch(err => console.error("Error loading gallery:", err));
+  </script>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2026 Wolf Industries and Design. All rights reserved.</p>
   </footer>
