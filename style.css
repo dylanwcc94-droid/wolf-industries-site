@@ -14,6 +14,7 @@ body {
   text-align: center;   /* global centering */
 }
 
+
 /* Navbar (Sticky + Responsive) */
 .navbar {
   position: sticky;
