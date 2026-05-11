@@ -26,11 +26,23 @@
 </nav>
 
   <section class="gallery">
-    <h1>Gallery</h1>
-    <p>Drag and drop images below to add them to your gallery:</p>
+  <div id="gallery-display"></div>
+</section>
 
-    <!-- Drag & Drop Zone -->
-    <div id="drop-zone">Drop images here</div>
+<script>
+  fetch("/api/gallery")
+    .then(res => res.json())
+    .then(images => {
+      const gallery = document.getElementById("gallery-display");
+      images.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = "Gallery Image";
+        gallery.appendChild(img);
+      });
+    })
+    .catch(err => console.error("Error loading gallery:", err));
+</script>
 
     <!-- Gallery Display -->
     <div id="gallery-display"></div>
