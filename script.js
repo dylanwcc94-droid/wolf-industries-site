@@ -28,11 +28,9 @@ if (gallery) {
       // Close lightbox when clicking outside image or on close button
       lightbox.addEventListener("click", (e) => {
   if (e.target === lightbox || e.target.classList.contains("lightbox-close")) {
-    e.preventDefault(); // stop the link from navigating
     lightbox.style.display = "none";
   }
 });
-
 
       // Close lightbox with ESC key
       document.addEventListener("keydown", (e) => {
@@ -43,4 +41,3 @@ if (gallery) {
     })
     .catch(err => console.error("Error loading gallery:", err));
 }
-
