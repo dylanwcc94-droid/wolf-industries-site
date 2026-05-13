@@ -9,6 +9,7 @@ if (gallery) {
     .then(images => {
       const lightbox = document.getElementById("lightbox");
       const lightboxImg = document.getElementById("lightbox-img");
+      const closeBtn = document.getElementById("lightbox-close");
 
       images.forEach(url => {
         const img = document.createElement("img");
@@ -16,7 +17,7 @@ if (gallery) {
         img.alt = "Gallery Image";
         img.style.cursor = "pointer";
 
-        // Open lightbox on click
+        // Open lightbox
         img.addEventListener("click", () => {
           lightboxImg.src = url;
           lightbox.style.display = "flex";
@@ -25,28 +26,25 @@ if (gallery) {
         gallery.appendChild(img);
       });
 
-      // Close lightbox when clicking outside image
-lightbox.addEventListener("click", (e) => {
-  if (e.target === lightbox) {
-    lightbox.style.display = "none";
-  }
-});
+      // Close when clicking the button
+      closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+      });
 
-// Close lightbox when clicking the close button
-const closeBtn = document.getElementById("lightbox-close");
-closeBtn.addEventListener("click", () => {
-  lightbox.style.display = "none";
-});
+      // Close when clicking outside the image
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = "none";
+        }
+      });
 
-// Close lightbox with ESC key
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    lightbox.style.display = "none";
-  }
-});
+      // Close with ESC key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          lightbox.style.display = "none";
+        }
+      });
     })
     .catch(err => console.error("Error loading gallery:", err));
-} else {
-  console.error("Gallery element not found");
 }
 
