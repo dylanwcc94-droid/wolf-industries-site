@@ -24,19 +24,26 @@
 
   <!-- Script to load images -->
   <script>
-    fetch("/api/gallery")
-      .then(res => res.json())
-      .then(images => {
-        const gallery = document.getElementById("gallery-display");
-        images.forEach(url => {
-          const img = document.createElement("img");
-          img.src = url;
-          img.alt = "Gallery Image";
-          gallery.appendChild(img);
+  fetch("/api/gallery")
+    .then(res => res.json())
+    .then(images => {
+      const gallery = document.getElementById("gallery-display");
+      images.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = "Gallery Image";
+
+        // Add click event to open full-size image
+        img.addEventListener("click", () => {
+          window.open(url, "_blank");
         });
-      })
-      .catch(err => console.error("Error loading gallery:", err));
-  </script>
+
+        gallery.appendChild(img);
+      });
+    })
+    .catch(err => console.error("Error loading gallery:", err));
+</script>
+
 
   <!-- Footer -->
   <footer>
