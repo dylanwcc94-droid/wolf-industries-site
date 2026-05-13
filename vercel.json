@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/assets/:path*",
+      "destination": "/public/assets/:path*"
+    },
+    {
+      "source": "/gallery/:path*",
+      "destination": "/public/gallery/:path*"
+    }
+  ]
+}
