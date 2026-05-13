@@ -18,9 +18,16 @@
 
   <!-- Gallery Section -->
   <section class="gallery">
-    <h1>Gallery</h1>
-    <div id="gallery-display"></div>
-  </section>
+  <h1>Gallery</h1>
+  <div id="gallery-display"></div>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lightbox">
+    <a href="#" class="lightbox-close">&times;</a>
+    <img id="lightbox-img" src="" alt="Full-size image">
+  </div>
+</section>
+
 
   <!-- Script to load images -->
   <script>
@@ -35,7 +42,10 @@
 
         // Add click event to open full-size image
         img.addEventListener("click", () => {
-          window.open(url, "_blank");
+          const lightbox = document.getElementById("lightbox");
+          const lightboxImg = document.getElementById("lightbox-img");
+          lightboxImg.src = url;
+          lightbox.style.display = "flex";
         });
 
         gallery.appendChild(img);
