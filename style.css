@@ -113,7 +113,15 @@ img {
 
 .contact-text {
   color: #4dff5f; /* your preferred green */
+  text-decoration: none;
+  font-size: 18px;
 }
+
+.contact-text:hover {
+  text-decoration: underline;
+  color: rgb(0, 255, 38); /* matches your hover accent */
+}
+
 
 .contact-info { 
   display: flex;
