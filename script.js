@@ -25,19 +25,28 @@ if (gallery) {
         gallery.appendChild(img);
       });
 
-      // Close lightbox when clicking outside image or on close button
-      lightbox.addEventListener("click", (e) => {
-  if (e.target === lightbox || e.target.classList.contains("lightbox-close")) {
+      // Close lightbox when clicking outside image
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
     lightbox.style.display = "none";
   }
 });
 
-      // Close lightbox with ESC key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          lightbox.style.display = "none";
-        }
-      });
+// Close lightbox when clicking the close button
+const closeBtn = document.getElementById("lightbox-close");
+closeBtn.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+
+// Close lightbox with ESC key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    lightbox.style.display = "none";
+  }
+});
     })
     .catch(err => console.error("Error loading gallery:", err));
+} else {
+  console.error("Gallery element not found");
 }
+
