@@ -4,24 +4,24 @@ import path from "path";
 
 export default function handler(req, res) {
   try {
-    // Paths to both assets and gallery folders
-    const assetsDir = path.join(process.cwd(), "public", "assets");
+    // ✅ Only look inside the /public/gallery folder
     const galleryDir = path.join(process.cwd(), "public", "gallery");
 
-    // Read files from each folder
-    const assetsFiles = fs.existsSync(assetsDir) ? fs.readdirSync(assetsDir) : [];
+    // Read files if folder exists
     const galleryFiles = fs.existsSync(galleryDir) ? fs.readdirSync(galleryDir) : [];
 
-    // Build URLs for each file
-    const assetUrls = assetsFiles.map(file => `/assets/${file}`);
-    const galleryUrls = galleryFiles.map(file => `/gallery/${file}`);
+    // Filter to include only image types
+    const imageFiles = galleryFiles.filter(file =>
+      file.match(/\.(jpg|jpeg|png|gif|webp)$/i)
+    );
 
-    // Combine both lists
-    const urls = [...assetUrls, ...galleryUrls];
-
-    res.status(200).json(urls);
+    // ✅ Return full URLs for the images
+    const imageUrls = imageFiles.map(file => `/gallery/${file}`);
+    res.status(200).json(imageUrls);
   } catch (error) {
-    console.error("Error reading folders:", error);
-    res.status(500).json({ error: "Failed to load gallery images" });
+    console.error("Error reading gallery:", error);
+    res.status(500).json({ error: "Failed to load gallery" });
+  } finally {
+    // ✅ No sensitive data is exposed here, just image URLs
   }
 }
