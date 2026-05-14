@@ -31,57 +31,52 @@
 
   <!-- Script to load images -->
   <script>
-  fetch("/api/gallery")
-    .then(res => res.json())
-    .then(images => {
-      const gallery = document.getElementById("gallery-display");
-      images.forEach(url => {
-        const img = document.createElement("img");
-        img.src = url;
-        img.alt = "Gallery Image";
+  const gallery = document.getElementById("gallery-display");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.getElementById("lightbox-close");
 
-        // Close button logic
-const lightbox = document.getElementById("lightbox");
-const closeBtn = document.getElementById("lightbox-close");
+  // ✅ List of images inside public/assets/
+  const images = [
+    "assets/image1.jpg",
+    "assets/image2.jpg",
+    "assets/image3.jpg",
+    "assets/image4.jpg"
+    // Add more filenames here as needed
+  ];
 
-// Close when clicking the X button
-closeBtn.addEventListener("click", () => {
-  lightbox.style.display = "none";
-});
+  // Load images into gallery
+  images.forEach(url => {
+    const img = document.createElement("img");
+    img.src = url;
+    img.alt = "Gallery Image";
+    img.style.cursor = "pointer";
 
-// Close when clicking outside the image
-lightbox.addEventListener("click", (e) => {
-  if (e.target === lightbox) {
+    // Open lightbox
+    img.addEventListener("click", () => {
+      lightboxImg.src = url;
+      lightbox.style.display = "flex";
+    });
+
+    gallery.appendChild(img);
+  });
+
+  // Close when clicking the X button
+  closeBtn.addEventListener("click", () => {
     lightbox.style.display = "none";
-  }
-});
+  });
 
-// Close with ESC key
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    lightbox.style.display = "none";
-  }
-});
+  // Close when clicking outside the image
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
 
-
-        // Add click event to open full-size image
-        img.addEventListener("click", () => {
-          const lightbox = document.getElementById("lightbox");
-          const lightboxImg = document.getElementById("lightbox-img");
-          lightboxImg.src = url;
-          lightbox.style.display = "flex";
-        });
-
-        gallery.appendChild(img);
-      });
-    })
-    .catch(err => console.error("Error loading gallery:", err));
+  // Close with ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightbox.style.display = "none";
+    }
+  });
 </script>
-
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Wolf Industries and Design. All rights reserved.</p>
-  </footer>
-</body>
-</html>
