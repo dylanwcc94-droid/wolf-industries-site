@@ -15,13 +15,12 @@ export default function handler(req, res) {
       file.match(/\.(jpg|jpeg|png|gif|webp)$/i)
     );
 
-    // ✅ Return full URLs for the images
-    const imageUrls = imageFiles.map(file => `/gallery/${file}`);
-    res.status(200).json(imageUrls);
+    // Build URLs for each image
+    const urls = imageFiles.map(file => `/gallery/${file}`);
+
+    res.status(200).json(urls);
   } catch (error) {
-    console.error("Error reading gallery:", error);
-    res.status(500).json({ error: "Failed to load gallery" });
-  } finally {
-    // ✅ No sensitive data is exposed here, just image URLs
+    console.error("Error reading gallery folder:", error);
+    res.status(500).json({ error: "Failed to load gallery images" });
   }
 }
