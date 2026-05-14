@@ -26,7 +26,7 @@ if (gallery) {
         gallery.appendChild(img);
       });
 
-      // Close when clicking the button
+      // Close when clicking the X button
       closeBtn.addEventListener("click", () => {
         lightbox.style.display = "none";
       });
@@ -47,4 +47,5 @@ if (gallery) {
     })
     .catch(err => console.error("Error loading gallery:", err));
 }
+
 
