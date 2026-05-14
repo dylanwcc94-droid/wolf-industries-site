@@ -40,6 +40,30 @@
         img.src = url;
         img.alt = "Gallery Image";
 
+        // Close button logic
+const lightbox = document.getElementById("lightbox");
+const closeBtn = document.getElementById("lightbox-close");
+
+// Close when clicking the X button
+closeBtn.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+
+// Close when clicking outside the image
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = "none";
+  }
+});
+
+// Close with ESC key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    lightbox.style.display = "none";
+  }
+});
+
+
         // Add click event to open full-size image
         img.addEventListener("click", () => {
           const lightbox = document.getElementById("lightbox");
