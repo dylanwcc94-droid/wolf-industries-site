@@ -1,16 +1,21 @@
-const fs = require("fs");
-const path = require("path");
+// /api/gallery.js
+import fs from "fs";
+import path from "path";
 
-module.exports = function handler(req, res) {
-  const galleryPath = path.join(process.cwd(), "public/gallery");
+export default function handler(req, res) {
+  // Path to your public/assets folder
+  const assetsDir = path.join(process.cwd(), "public", "assets");
 
   try {
-    const files = fs.readdirSync(galleryPath);
-    const images = files.filter((file) => /\.(jpg|jpeg|png|gif|webp)$/i.test(file));
-    const urls = images.map((img) => `/gallery/${img}`);
+    // Read all files in assets folder
+    const files = fs.readdirSync(assetsDir);
+
+    // Build URLs for each file
+    const urls = files.map(file => `/assets/${file}`);
 
     res.status(200).json(urls);
   } catch (error) {
-    res.status(500).json({ error: "Unable to load gallery images" });
+    console.error("Error reading assets folder:", error);
+    res.status(500).json({ error: "Failed to load gallery images" });
   }
-};
+}
