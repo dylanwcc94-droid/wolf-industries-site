@@ -22,28 +22,28 @@ img {
 
 /* Navbar */
 .navbar {
-  position: fixed;       /* lock it in place */
-  top: 0;                /* stick to the very top */
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%;           /* span full width */
-  background: rgba(0,0,0,0.6); /* semi-transparent fade */
+  width: 100%;
+  background: rgba(0,0,0,0.6);
   padding: 10px;
   text-align: center;
-  z-index: 1000;         /* ensure it stays above everything */
+  z-index: 1000;
 }
 
 .navbar a {
-  color: white; /* stays white */
+  color: white;
   text-decoration: none;
   margin: 0 15px;
   font-weight: bold;
-  text-shadow: 0 0 6px #4dff5f, 0 0 12px #4dff5f; /* green glow */
+  text-shadow: 0 0 6px #4dff5f, 0 0 12px #4dff5f;
   transition: color 0.3s, text-shadow 0.3s;
 }
 
 .navbar a:hover {
-  color: white; /* still white on hover */
-  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38; /* stronger glow on hover */
+  color: white;
+  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38;
 }
 
 /* Hero */
@@ -161,18 +161,17 @@ img {
 }
 /* Footer */
 footer {
-  background: rgba(0,0,0,0.6); /* semi-transparent to match background fade */
+  background: rgba(0,0,0,0.6);
   padding: 20px;
   text-align: center;
-  color: white; /* stays white */
-  text-shadow: 0 0 6px #4dff5f, 0 0 12px #4dff5f; /* green glow */
+  color: white;
+  text-shadow: 0 0 6px #4dff5f, 0 0 12px #4dff5f;
   transition: text-shadow 0.3s;
 }
 
 footer:hover {
-  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38; /* stronger glow on hover */
+  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38;
 }
-
 
 /* Bio Section */
 .bio {
