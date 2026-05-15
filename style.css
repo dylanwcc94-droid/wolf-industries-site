@@ -37,13 +37,13 @@ img {
   text-decoration: none;
   margin: 0 15px;
   font-weight: bold;
-  text-shadow: 0 0 6px #4dff5f, 0 0 12px #4dff5f;
+  text-shadow: 0 0 4px #4dff5f, 0 0 8px #4dff5f, 0 0 12px #4dff5f;
   transition: color 0.3s, text-shadow 0.3s;
 }
 
 .navbar a:hover {
   color: white;
-  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38;
+  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38, 0 0 30px #00ff38;
 }
 
 /* Hero */
@@ -165,12 +165,12 @@ footer {
   padding: 20px;
   text-align: center;
   color: white;
-  text-shadow: 0 0 6px #4dff5f, 0 0 12px #4dff5f;
+  text-shadow:  0 0 4px #4dff5f, 0 0 8px #4dff5f, 0 0 12px #4dff5f;
   transition: text-shadow 0.3s;
 }
 
 footer:hover {
-  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38;
+  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38, 0 0 30px #00ff38;
 }
 
 /* Bio Section */
