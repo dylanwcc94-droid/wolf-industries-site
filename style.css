@@ -280,13 +280,13 @@ footer:hover {
 
 /* Lightbox overlay */
 .lightbox {
-  position: fixed;          /* lock overlay to viewport */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.4);
-  display: flex;            /* always flex container */
+  display: none;            /* hidden by default */
   justify-content: center;  /* center horizontally */
   align-items: center;      /* center vertically */
   z-index: 9999;

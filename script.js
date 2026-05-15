@@ -1,6 +1,3 @@
-// Example script — safe checks added
-// Remove duplicate dropZone declarations
-
 // Gallery Lightbox Script
 const gallery = document.getElementById("gallery-display");
 if (gallery) {
@@ -21,6 +18,7 @@ if (gallery) {
         img.addEventListener("click", () => {
           lightboxImg.src = url;
           lightbox.style.display = "flex";
+          document.body.style.overflow = "hidden"; // lock scroll
         });
 
         gallery.appendChild(img);
@@ -29,12 +27,14 @@ if (gallery) {
       // Close when clicking the X button
       closeBtn.addEventListener("click", () => {
         lightbox.style.display = "none";
+        document.body.style.overflow = ""; // restore scroll
       });
 
       // Close when clicking outside the image
       lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) {
           lightbox.style.display = "none";
+          document.body.style.overflow = "";
         }
       });
 
@@ -42,10 +42,9 @@ if (gallery) {
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
           lightbox.style.display = "none";
+          document.body.style.overflow = "";
         }
       });
     })
     .catch(err => console.error("Error loading gallery:", err));
 }
-
-
