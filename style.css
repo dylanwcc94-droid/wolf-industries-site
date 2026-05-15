@@ -280,7 +280,7 @@ footer:hover {
 
 /* Lightbox overlay */
 .lightbox {
-  position: sticky;
+  position: static;          /* changed from fixed to static */
   top: 0;
   left: 0;
   width: 100%;
