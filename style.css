@@ -94,12 +94,11 @@ img {
   margin-bottom: 10px;
 }
 
-/* Contact Info */
-
 /* Contact Section */
 .contact {
   padding: 50px 20px;
   text-align: center;
+  background: rgba(0,0,0,0.4); /* unified transparency */
 }
 
 .contact-grid {
@@ -113,6 +112,10 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
+  background: rgba(0,0,0,0.4);
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
 }
 
 .contact-item .icon {
@@ -121,14 +124,14 @@ img {
 }
 
 .contact-text {
-  color: #4dff5f; /* your preferred green */
+  color: #4dff5f;
   text-decoration: none;
   font-size: 18px;
 }
 
 .contact-text:hover {
   text-decoration: underline;
-  color: rgb(0, 255, 38); /* matches your hover accent */
+  color: rgb(0, 255, 38);
 }
 
 .contact-info { 
@@ -138,12 +141,7 @@ img {
   gap: 20px;
   padding: 40px 20px;
 }
-.contact-item {
-  background: rgba(0,0,0,0.4);
-  padding: 20px;
-  border-radius: 10px;
-  width: 250px;
-}
+
 .contact-item a {
   color: white;
   text-decoration: none;
@@ -159,13 +157,14 @@ img {
   width: 24px;
   height: 24px;
 }
+
 /* Footer */
 footer {
   background: rgba(0,0,0,0.4);
   padding: 20px;
   text-align: center;
   color: white;
-  text-shadow:  0 0 4px #4dff5f, 0 0 8px #4dff5f, 0 0 12px #4dff5f;
+  text-shadow: 0 0 4px #4dff5f, 0 0 8px #4dff5f, 0 0 12px #4dff5f;
   transition: text-shadow 0.3s;
 }
 
@@ -177,6 +176,7 @@ footer:hover {
 .bio {
   padding: 50px 20px;
   text-align: center;
+  background: rgba(0,0,0,0.4); /* unified transparency */
 }
 
 .bio-content {
@@ -193,6 +193,7 @@ footer:hover {
 .cards,
 .gallery {
   padding: 50px 20px;
+  background: rgba(0,0,0,0.4); /* unified transparency */
 }
 
 .card-grid {
@@ -213,105 +214,15 @@ footer:hover {
   display: block;
   width: 100%;
   max-height: 260px;
-  margin: 15px auto;
-  object-fit: contain;
+  margin-bottom: 15px;
+  object-fit: cover;
 }
-
-#gallery-display {
-  background: rgba(0,0,0,0.4);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1100px;
-  margin: 30px auto 0;
-}
-
-#gallery-display img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 10px;
-  object-fit: contain; /* rescale image to fit block */
-  cursor: pointer;     /* show pointer on hover */
-}
-
-
-@media (max-width: 600px) {
-  .navbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px 14px;
-  }
-
-  .navbar a {
-    margin: 0;
-  }
-
-  .hero {
-    padding: 70px 16px;
-  }
-
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .hero p {
-    font-size: 19px;
-  }
-
-  .cards,
-  .gallery,
-  .bio,
-  .services,
-  .contact {
-    padding: 36px 14px;
-  }
-
-  .card-grid,
-  .service-grid,
-  #gallery-display {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-item {
-    width: min(100%, 320px);
-  }
-}
-
-/* Lightbox overlay */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-  display: none; /* hidden by default */
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-.lightbox:target {
-  display: flex; /* show when targeted */
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 32px;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.lightbox-close:hover {
+.card-title {
   color: #4dff5f;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.card-description {
+  font-size: 16px;
+  color: white;
 }
