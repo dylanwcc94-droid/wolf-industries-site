@@ -26,7 +26,7 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.4);
   padding: 10px;
   text-align: center;
   z-index: 1000;
@@ -49,7 +49,7 @@ img {
 /* Hero */
 .hero {
   padding: 100px 20px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.4);
 }
 
 .logo {
@@ -84,7 +84,7 @@ img {
 }
 
 .service-card {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.4);
   border-radius: 10px;
   padding: 22px;
 }
@@ -139,7 +139,7 @@ img {
   padding: 40px 20px;
 }
 .contact-item {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.4);
   padding: 20px;
   border-radius: 10px;
   width: 250px;
@@ -161,7 +161,7 @@ img {
 }
 /* Footer */
 footer {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.4);
   padding: 20px;
   text-align: center;
   color: white;
@@ -204,7 +204,7 @@ footer:hover {
 }
 
 .card-item {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.4);
   border-radius: 10px;
   padding: 20px;
 }
