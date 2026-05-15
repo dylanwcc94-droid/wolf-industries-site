@@ -30,41 +30,90 @@ img {
   padding: 10px;
   text-align: center;
   z-index: 1000;
-  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  text-shadow: 0 0 4px #4dff5f, 0 0 8px #4dff5f, 0 0 12px #4dff5f;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.navbar a:hover {
+  color: white;
+  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38, 0 0 30px #00ff38;
 }
 
 /* Hero */
 .hero {
   padding: 100px 20px;
   background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.logo {
+  width: 300px;
+  margin-bottom: 10px;
+}
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+} 
+.hero p {
+  font-size: 24px;
 }
 
 /* Services Section */
 .services {
   padding: 50px 20px;
   background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+}
+
+.services h2 {
+  font-size: 34px;
+  margin-bottom: 24px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .service-card {
   background: rgba(0,0,0,0.4);
   border-radius: 10px;
   padding: 22px;
-  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.service-card h3 {
+  color: #4dff5f;
+  margin-bottom: 10px;
 }
 
 /* Contact Section */
 .contact {
   padding: 50px 20px;
   text-align: center;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.4); /* unified transparency */
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .contact-item {
@@ -74,9 +123,49 @@ img {
   background: rgba(0,0,0,0.4);
   padding: 20px;
   border-radius: 10px;
-  width: 250px;
-  backdrop-filter: blur(4px);
+  width: 250px;  
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.contact-item .icon {
+  width: 30px;
+  height: 30px;
+}
+
+.contact-text {
+  color: #4dff5f;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.contact-text:hover {
+  text-decoration: underline;
+  color: rgb(0, 255, 38);
+}
+
+.contact-info { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.contact-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-item a:hover {
+  color: rgb(0, 255, 38);
+}
+.icon {
+  width: 24px;
+  height: 24px;
 }
 
 /* Footer */
@@ -86,48 +175,102 @@ footer {
   text-align: center;
   color: white;
   text-shadow: 0 0 4px #4dff5f, 0 0 8px #4dff5f, 0 0 12px #4dff5f;
-  transition: text-shadow 0.3s;
-  backdrop-filter: blur(4px);
+  transition: text-shadow 0.3s;   
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+footer:hover {
+  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38, 0 0 30px #00ff38;
 }
 
 /* Bio Section */
 .bio {
   padding: 50px 20px;
   text-align: center;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.4); /* unified transparency */
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.bio-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bio-logo {
+  width: 150px;
+  margin-bottom: 20px;
 }
 
 /* Cards Section */
 .cards,
 .gallery {
   padding: 50px 20px;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.4); /* unified transparency */
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 30px auto 0;
 }
 
 .card-item {
   background: rgba(0,0,0,0.4);
   border-radius: 10px;
-  padding: 20px;
-  backdrop-filter: blur(4px);
+  padding: 20px;   
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.card-image {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+.card-title {
+  color: #4dff5f;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.card-description {
+  font-size: 16px;
+  color: white;
 }
 
 /* Gallery Section */
 #gallery-display {
   background: rgba(0,0,0,0.4);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  display: grid; /* ✅ grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* responsive columns */
+  gap: 20px; /* spacing between images */
   max-width: 1100px;
   margin: 30px auto 0;
-  justify-items: center;
-  backdrop-filter: blur(4px);
+  justify-items: center; /* center images in their grid cells */
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.gallery-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+#gallery-display img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  object-fit: cover; /* fills the grid cell neatly */
+  cursor: pointer;
 }
 
 /* Lightbox overlay */
@@ -141,22 +284,16 @@ footer {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
-  backdrop-filter: blur(4px);
+  z-index: 9999;  
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 .lightbox img {
   max-width: 90%;
-  max-height: 80%;
+  max-height: 90%;
   border-radius: 10px;
 }
-
-/* Responsive */
-@media (max-width: 768px) {
-  .service-card,
-  .contact-item,
-  .card-item {
-    width: 100%;
-  }
+.lightbox:target {
+  display: flex;
 }
 
