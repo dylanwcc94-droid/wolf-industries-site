@@ -21,7 +21,7 @@ img {
 
 /* Navbar */
 .navbar {
-  background: rgba(0, 0, 0, 0,0.6);
+  background: black;
   padding: 10px;
   text-align: center;
 }
@@ -44,7 +44,7 @@ img {
 }
 
 .logo {
-  width: 00px;
+  width: 300px;
   margin-bottom: 10px;
 }
 .hero h1 {
