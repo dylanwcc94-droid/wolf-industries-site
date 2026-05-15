@@ -1,0 +1,8 @@
+﻿# Ignore everything outside project
+/node_modules
+/.venv
+/.vscode
+/dist
+/build
+*.log
+*.tmp
