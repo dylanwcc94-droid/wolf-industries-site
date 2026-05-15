@@ -283,12 +283,18 @@ footer:hover {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.4);
-  display: none;            /* hidden by default */
+  display: flex;            /* always flex container */
   justify-content: center;  /* center horizontally */
   align-items: center;      /* center vertically */
   z-index: 9999;
-  backdrop-filter: blur(4px);
+  opacity: 0;               /* hidden by default */
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox:target {
+  opacity: 1;               /* show when targeted */
+  pointer-events: auto;     /* enable interaction */
 }
 
 .lightbox img {
@@ -296,10 +302,8 @@ footer:hover {
   max-height: 90%;
   border-radius: 10px;
   object-fit: contain;
-  display: block;
-  margin: auto;             /* ensures centering */
 }
-
+s
 .lightbox-close {
   position: fixed;          /* ✅ stays in viewport */
   top: 20px;
