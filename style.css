@@ -283,19 +283,36 @@ footer:hover {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.4);
-  display: none;
+  display: none; /* hidden by default */
   justify-content: center;
   align-items: center;
-  z-index: 9999;  
+  z-index: 9999;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
+
 .lightbox img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
+  object-fit: contain; /* keeps proportions */
+  display: block;
+  margin: auto; /* ensures centering */
 }
-.lightbox:target {
-  display: flex;
+
+.lightbox-close {
+  position: fixed; /* ✅ keep it fixed in viewport */
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10000; /* stays above image */
 }
+.lightbox-close:hover {
+  color: #4dff5f;
+}
+
 
