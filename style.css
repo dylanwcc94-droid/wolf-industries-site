@@ -218,6 +218,7 @@ footer:hover {
 }
 
 #gallery-display {
+  background: rgba(0,0,0,0.4);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
