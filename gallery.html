@@ -36,30 +36,31 @@
   const lightboxImg = document.getElementById("lightbox-img");
   const closeBtn = document.getElementById("lightbox-close");
 
-  // ✅ List of images inside public/assets/
-  const images = [
-    "assets/image1.jpg",
-    "assets/image2.jpg",
-    "assets/image3.jpg",
-    "assets/image4.jpg"
-    // Add more filenames here as needed
-  ];
+  // ✅ Fetch images dynamically from /public/gallery via API
+  fetch("/api/gallery")
+    .then(res => res.json())
+    .then(images => {
+      if (images.length === 0) {
+        gallery.innerHTML = "<p>No images found in gallery.</p>";
+        return;
+      }
 
-  // Load images into gallery
-  images.forEach(url => {
-    const img = document.createElement("img");
-    img.src = url;
-    img.alt = "Gallery Image";
-    img.style.cursor = "pointer";
+      images.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = "Gallery Image";
+        img.style.cursor = "pointer";
 
-    // Open lightbox
-    img.addEventListener("click", () => {
-      lightboxImg.src = url;
-      lightbox.style.display = "flex";
-    });
+        // Open lightbox
+        img.addEventListener("click", () => {
+          lightboxImg.src = url;
+          lightbox.style.display = "flex";
+        });
 
-    gallery.appendChild(img);
-  });
+        gallery.appendChild(img);
+      });
+    })
+    .catch(err => console.error("Error loading gallery:", err));
 
   // Close when clicking the X button
   closeBtn.addEventListener("click", () => {
