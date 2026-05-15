@@ -284,7 +284,7 @@ footer:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.7);
   display: none; /* hidden by default */
   justify-content: center;
   align-items: center;
