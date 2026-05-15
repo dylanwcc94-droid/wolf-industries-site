@@ -72,6 +72,8 @@ img {
 .services {
   padding: 50px 20px;
   background: rgba(0,0,0,0.4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 .services h2 {
