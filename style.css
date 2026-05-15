@@ -12,6 +12,7 @@ body {
   color: white;
   line-height: 1.6;
   text-align: center;
+  padding-top: 60px; /* offset for navbar height */
 }
 
 img {
@@ -21,9 +22,14 @@ img {
 
 /* Navbar */
 .navbar {
-  background: rgba(0,0,0,0.6); /* semi-transparent to match background fade */
+  position: fixed;       /* lock it in place */
+  top: 0;                /* stick to the very top */
+  left: 0;
+  width: 100%;           /* span full width */
+  background: rgba(0,0,0,0.6); /* semi-transparent fade */
   padding: 10px;
   text-align: center;
+  z-index: 1000;         /* ensure it stays above everything */
 }
 
 .navbar a {
@@ -39,7 +45,6 @@ img {
   color: white; /* still white on hover */
   text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38; /* stronger glow on hover */
 }
-
 
 /* Hero */
 .hero {
@@ -126,7 +131,6 @@ img {
   color: rgb(0, 255, 38); /* matches your hover accent */
 }
 
-
 .contact-info { 
   display: flex;
   flex-wrap: wrap;
@@ -157,11 +161,18 @@ img {
 }
 /* Footer */
 footer {
-  background: black;
+  background: rgba(0,0,0,0.6); /* semi-transparent to match background fade */
   padding: 20px;
   text-align: center;
-  color: white;
+  color: white; /* stays white */
+  text-shadow: 0 0 6px #4dff5f, 0 0 12px #4dff5f; /* green glow */
+  transition: text-shadow 0.3s;
 }
+
+footer:hover {
+  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38; /* stronger glow on hover */
+}
+
 
 /* Bio Section */
 .bio {
