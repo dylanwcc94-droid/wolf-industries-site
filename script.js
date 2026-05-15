@@ -5,14 +5,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("lightbox-close");
 
   if (gallery && lightbox && lightboxImg && closeBtn) {
-    // Open lightbox
-    gallery.querySelectorAll('[data-lightbox]').forEach(img => {
-      img.addEventListener("click", () => {
-        lightboxImg.src = img.src;
-        lightbox.style.display = "flex";
-        document.body.style.overflow = "hidden"; // lock scroll
-      });
-    });
+    // Fetch images dynamically
+    fetch("/api/gallery")
+      .then(res => res.json())
+      .then(images => {
+        if (!images || images.length === 0) {
+          gallery.innerHTML = "<p>No images found in gallery.</p>";
+          return;
+        }
+
+        images.forEach(url => {
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = "Gallery Image";
+          img.className = "gallery-image";
+          img.setAttribute("data-lightbox", ""); // mark for lightbox
+          img.style.cursor = "pointer";
+
+          // Open lightbox
+          img.addEventListener("click", () => {
+            lightboxImg.src = url;
+            lightbox.style.display = "flex";
+            document.body.style.overflow = "hidden"; // lock scroll
+          });
+
+          gallery.appendChild(img);
+        });
+      })
+      .catch(err => console.error("Error loading gallery:", err));
 
     // Close with X
     closeBtn.addEventListener("click", () => {
