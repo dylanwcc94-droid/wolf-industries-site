@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("lightbox-close");
 
   if (gallery && lightbox && lightboxImg && closeBtn) {
+    // Open lightbox
     gallery.querySelectorAll('[data-lightbox]').forEach(img => {
       img.addEventListener("click", () => {
         lightboxImg.src = img.src;
@@ -13,11 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    // Close with X
     closeBtn.addEventListener("click", () => {
       lightbox.style.display = "none";
       document.body.style.overflow = "";
     });
 
+    // Close when clicking outside image
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) {
         lightbox.style.display = "none";
@@ -25,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    // Close with ESC key
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         lightbox.style.display = "none";

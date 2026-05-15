@@ -18,70 +18,21 @@
 
   <!-- Gallery Section -->
   <section class="gallery">
-  <h1>Gallery</h1>
-  <div id="gallery-display">
-  <img src="/assets/gallery1.jpg" alt="Gallery Image" class="gallery-image" data-lightbox>
-  <img src="/assets/gallery2.jpg" alt="Gallery Image" class="gallery-image" data-lightbox>
-  <!-- more images -->
-</div>
+    <h1>Gallery</h1>
+    <div id="gallery-display">
+      <!-- Images will be loaded dynamically OR you can hardcode with data-lightbox -->
+      <img src="/assets/gallery1.jpg" alt="Gallery Image" class="gallery-image" data-lightbox>
+      <img src="/assets/gallery2.jpg" alt="Gallery Image" class="gallery-image" data-lightbox>
+    </div>
 
-<!-- Lightbox overlay -->
-<div id="lightbox" class="lightbox">
-  <button class="lightbox-close">&times;</button>
-  <img id="lightbox-img" src="" alt="Lightbox Image">
-</div>
-
+    <!-- Lightbox overlay -->
+    <div id="lightbox" class="lightbox">
+      <button id="lightbox-close" class="lightbox-close">&times;</button>
+      <img id="lightbox-img" src="" alt="Lightbox Image">
+    </div>
   </section> 
 
-  <!-- Script to load images -->
-  <script src="gallery.js"></script>
-  const gallery = document.getElementById("gallery-display");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtn = document.getElementById("lightbox-close");
-
-  // ✅ Fetch images dynamically from /public/gallery via API
-  fetch("/api/gallery")
-    .then(res => res.json())
-    .then(images => {
-      if (images.length === 0) {
-        gallery.innerHTML = "<p>No images found in gallery.</p>";
-        return;
-      }
-
-      images.forEach(url => {
-        const img = document.createElement("img");
-        img.src = url;
-        img.alt = "Gallery Image";
-        img.style.cursor = "pointer";
-
-        // Open lightbox
-        img.addEventListener("click", () => {
-          lightboxImg.src = url;
-          lightbox.style.display = "flex";
-        });
-
-        gallery.appendChild(img);
-      });
-    })
-    .catch(err => console.error("Error loading gallery:", err));
-
-  // Close when clicking the X button
-  closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-
-  // Close when clicking outside the image
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
-    }
-  });
-
-  // Close with ESC key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      lightbox.style.display = "none";
-    }
-  });
-</script>
+  <!-- Script include -->
+  <script src="script.js"></script>
+</body>
+</html>
