@@ -21,21 +21,25 @@ img {
 
 /* Navbar */
 .navbar {
-  background: black;
+  background: rgba(0,0,0,0.6); /* semi-transparent to match background fade */
   padding: 10px;
   text-align: center;
 }
 
 .navbar a {
-  color: white;
+  color: white; /* stays white */
   text-decoration: none;
   margin: 0 15px;
   font-weight: bold;
+  text-shadow: 0 0 6px #4dff5f, 0 0 12px #4dff5f; /* green glow */
+  transition: color 0.3s, text-shadow 0.3s;
 }
 
 .navbar a:hover {
-  color: rgb(0, 255, 38);
+  color: white; /* still white on hover */
+  text-shadow: 0 0 10px #00ff38, 0 0 20px #00ff38; /* stronger glow on hover */
 }
+
 
 /* Hero */
 .hero {
