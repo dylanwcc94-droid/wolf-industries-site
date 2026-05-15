@@ -13,6 +13,9 @@ body {
   line-height: 1.6;
   text-align: center;
   padding-top: 60px; /* offset for navbar height */
+  body:has(.lightbox:target) {
+  overflow: hidden; /* prevent scrolling when lightbox is open */
+}
 }
 
 img {
@@ -288,12 +291,14 @@ footer:hover {
   align-items: center;      /* center vertically */
   z-index: 9999;
   opacity: 0;               /* hidden by default */
+  pointer-events: none;
+  transition: opacity 0.3s ease;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
 .lightbox:target {
-  opacity: 1;               /* show when targeted */
+  opacity: 1;               /* show overlay */
   pointer-events: auto;     /* enable interaction */
 }
 
@@ -305,7 +310,7 @@ footer:hover {
 }
 s
 .lightbox-close {
-  position: fixed;          /* ✅ stays in viewport */
+  position: fixed;          /* not absolute */
   top: 20px;
   right: 30px;
   font-size: 32px;
