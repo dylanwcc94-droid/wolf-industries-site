@@ -8,7 +8,7 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Main navigation">
     <a href="index.html">Home</a>
     <a href="bio.html">Bio</a>
     <a href="cards.html">Cards</a>
@@ -18,18 +18,18 @@
 
   <!-- Gallery Section -->
   <section class="gallery">
-  <h1>Gallery</h1>
- <div id="gallery-display"></div>
+    <h1>Gallery</h1>
+    <div id="gallery-display"></div>
 
- <!-- Lightbox overlay -->
-<div id="lightbox" class="lightbox">
-  <button id="lightbox-close" class="lightbox-close">&times;</button>
-  <img id="lightbox-img" src="" alt="Lightbox Image">
-</div>
+    <!-- Lightbox overlay -->
+    <div id="lightbox" class="lightbox">
+      <!-- You can have one or more close buttons, but use class not duplicate IDs -->
+      <button class="lightbox-close">&times;</button>
+      <img id="lightbox-img" src="" alt="Lightbox Image">
+    </div>
+  </section> 
 
-</section>
-
-  <!-- Script include -->
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
