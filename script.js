@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("lightbox-close");
 
   if (gallery && lightbox && lightboxImg && closeBtn) {
-    // Fetch images dynamically
     fetch("/api/gallery")
       .then(res => res.json())
       .then(images => {
@@ -19,14 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
           img.src = url;
           img.alt = "Gallery Image";
           img.className = "gallery-image";
-          img.setAttribute("data-lightbox", ""); // mark for lightbox
           img.style.cursor = "pointer";
 
           // Open lightbox
           img.addEventListener("click", () => {
             lightboxImg.src = url;
             lightbox.style.display = "flex";
-            document.body.style.overflow = "hidden"; // lock scroll
+            document.body.style.overflow = "hidden";
           });
 
           gallery.appendChild(img);
@@ -34,13 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch(err => console.error("Error loading gallery:", err));
 
-    // Close with X
+    // Close handlers
     closeBtn.addEventListener("click", () => {
       lightbox.style.display = "none";
       document.body.style.overflow = "";
     });
 
-    // Close when clicking outside image
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) {
         lightbox.style.display = "none";
@@ -48,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Close with ESC key
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         lightbox.style.display = "none";

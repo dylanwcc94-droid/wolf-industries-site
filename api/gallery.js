@@ -1,26 +1,22 @@
-// /api/gallery.js
 import fs from "fs";
 import path from "path";
 
 export default function handler(req, res) {
+  const galleryPath = path.join(process.cwd(), "public/assets/gallery");
+
   try {
-    // ✅ Only look inside the /public/gallery folder
-    const galleryDir = path.join(process.cwd(), "public", "gallery");
+    const files = fs.readdirSync(galleryPath);
 
-    // Read files if folder exists
-    const galleryFiles = fs.existsSync(galleryDir) ? fs.readdirSync(galleryDir) : [];
-
-    // Filter to include only image types
-    const imageFiles = galleryFiles.filter(file =>
+    // Filter only image files
+    const images = files.filter(file =>
       file.match(/\.(jpg|jpeg|png|gif|webp)$/i)
     );
 
-    // Build URLs for each image
-    const urls = imageFiles.map(file => `/gallery/${file}`);
+    // Return URLs automatically based on filenames
+    const urls = images.map(img => `/assets/gallery/${img}`);
 
     res.status(200).json(urls);
   } catch (error) {
-    console.error("Error reading gallery folder:", error);
-    res.status(500).json({ error: "Failed to load gallery images" });
+    res.status(500).json({ error: "Unable to load gallery images" });
   }
 }
