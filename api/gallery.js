@@ -7,12 +7,12 @@ export default function handler(req, res) {
   try {
     const files = fs.readdirSync(galleryPath);
 
-    // Filter only image files
+    // Only include image files
     const images = files.filter(file =>
       file.match(/\.(jpg|jpeg|png|gif|webp)$/i)
     );
 
-    // Return URLs automatically based on filenames
+    // Build URLs for each image
     const urls = images.map(img => `/assets/gallery/${img}`);
 
     res.status(200).json(urls);
