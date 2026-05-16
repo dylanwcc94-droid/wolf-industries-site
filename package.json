@@ -1,0 +1,12 @@
+{
+  "name": "wolf-industries-site",
+  "version": "1.0.0",
+  "description": "Wolf Industries and Design website",
+  "private": true,
+  "scripts": {
+    "build": "echo 'No build step required for static site'"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.12"
+  }
+}
