@@ -2,17 +2,15 @@ import { list } from "@vercel/blob";
 
 export default async function handler(req, res) {
   try {
-    // List all blobs in your linked storage
-    const { blobs } = await list();
+    const { blobs } = await list(); // uses BLOB_READ_WRITE_TOKEN
 
-    // Filter only images
     const images = blobs
       .filter(b => b.pathname.match(/\.(jpg|jpeg|png|gif|webp)$/i))
       .map(b => b.url);
 
     res.status(200).json(images);
   } catch (error) {
-    console.error(error);
+    console.error("Gallery API error:", error);
     res.status(500).json({ error: "Unable to load gallery images" });
   }
 }
