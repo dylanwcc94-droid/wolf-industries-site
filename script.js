@@ -2,7 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const gallery = document.getElementById("gallery-display");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtn = document.getElementById("lightbox-close");
+  const closeBtns = document.querySelectorAll('.lightbox-close');
+closeBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+    document.body.style.overflow = "";
+  });
+});
 
   if (gallery && lightbox && lightboxImg && closeBtn) {
     fetch("/api/gallery")
