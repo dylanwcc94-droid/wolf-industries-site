@@ -15,7 +15,7 @@ body {
   padding-top: 60px; /* offset for navbar height */
 }
 
-body:has(.lightbox:target) {
+body:has(.lightbox.is-open) {
   overflow: hidden; /* prevent scrolling when lightbox is open */
 }
 
@@ -287,32 +287,38 @@ footer:hover {
 /* Lightbox overlay */
 .lightbox {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;  
-  background: rgba(0,0,0,0.6);
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  padding: 28px;
+  background: rgba(0,0,0,0.82);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  overflow: hidden;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
-.lightbox:target {
-  opacity: 1;               /* show overlay */
-  pointer-events: auto;     /* enable interaction */
+.lightbox.is-open {
+  display: flex;
 }
 
 .lightbox img {
-  max-width: 90%;
-  max-height: 90%;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100vw - 56px);
+  max-height: calc(100dvh - 96px);
   border-radius: 8px;
   object-fit: contain;
 }
 
 .lightbox-close {
   position: fixed;
-  top: 20px; right: 30px;
+  top: 14px;
+  right: 22px;
   font-size: 32px;
   color: white;
   background: none;
@@ -368,6 +374,20 @@ footer:hover {
 }
 
 @media (max-width: 600px) {
+  .lightbox {
+    padding: 16px;
+  }
+
+  .lightbox img {
+    max-width: calc(100vw - 32px);
+    max-height: calc(100dvh - 72px);
+  }
+
+  .lightbox-close {
+    top: 8px;
+    right: 14px;
+  }
+
   .upload-panel {
     margin: 36px 14px;
   }
