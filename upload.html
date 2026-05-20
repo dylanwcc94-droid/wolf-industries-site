@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wolf Industries and Design | Upload Gallery Images</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="bio.html">Bio</a>
+    <a href="cards.html">Cards</a>
+    <a href="contact.html">Contact</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+
+  <main class="upload-panel">
+    <h1>Upload Gallery Images</h1>
+    <form id="upload-form" class="upload-form">
+      <label for="upload-token">Upload Password</label>
+      <input id="upload-token" name="upload-token" type="password" autocomplete="current-password" required>
+
+      <label for="image-files">Images</label>
+      <input id="image-files" name="image-files" type="file" accept="image/*" multiple required>
+
+      <button type="submit">Upload Images</button>
+    </form>
+
+    <div id="upload-status" class="upload-status" role="status" aria-live="polite"></div>
+  </main>
+
+  <script src="upload.js"></script>
+</body>
+</html>

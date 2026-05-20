@@ -13,9 +13,10 @@ body {
   line-height: 1.6;
   text-align: center;
   padding-top: 60px; /* offset for navbar height */
-  body:has(.lightbox:target) {
-  overflow: hidden; /* prevent scrolling when lightbox is open */
 }
+
+body:has(.lightbox:target) {
+  overflow: hidden; /* prevent scrolling when lightbox is open */
 }
 
 img {
@@ -322,4 +323,52 @@ footer:hover {
 
 .lightbox-close:hover {
   color: #4dff5f;
+}
+
+/* Upload Page */
+.upload-panel {
+  max-width: 620px;
+  margin: 60px auto;
+  padding: 32px 20px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 10px;
+}
+
+.upload-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.upload-form input,
+.upload-form button {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px;
+  font: inherit;
+}
+
+.upload-form button {
+  color: black;
+  background: #4dff5f;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.upload-status {
+  min-height: 28px;
+  margin-top: 20px;
+  color: #4dff5f;
+}
+
+.upload-status.error {
+  color: #ff8585;
+}
+
+@media (max-width: 600px) {
+  .upload-panel {
+    margin: 36px 14px;
+  }
 }

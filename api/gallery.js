@@ -1,66 +1,42 @@
-import { list } from "@vercel/blob";
+const fs = require("fs");
+const path = require("path");
 
-export default async function handler(req, res) {
+const IMAGE_EXTENSIONS = /\.(jpg|jpeg|png|gif|webp)$/i;
+
+function getStaticGalleryImages() {
+  const galleryPath = path.join(process.cwd(), "public/gallery");
+
+  if (!fs.existsSync(galleryPath)) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(galleryPath)
+    .filter((file) => IMAGE_EXTENSIONS.test(file))
+    .map((file) => `/gallery/${encodeURIComponent(file)}`);
+}
+
+async function getBlobGalleryImages() {
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    return [];
+  }
+
+  const { list } = await import("@vercel/blob");
+  const { blobs } = await list({ prefix: "gallery/" });
+
+  return blobs
+    .filter((blob) => IMAGE_EXTENSIONS.test(blob.pathname))
+    .map((blob) => blob.url);
+}
+
+module.exports = async function handler(req, res) {
   try {
-    const { blobs } = await list(); // uses BLOB_READ_WRITE_TOKEN
+    const staticImages = getStaticGalleryImages();
+    const blobImages = await getBlobGalleryImages();
 
-    const images = blobs
-      .filter(b => b.pathname.match(/\.(jpg|jpeg|png|gif|webp)$/i))
-      .map(b => b.url);
-
-    res.status(200).json(images);
+    res.status(200).json([...blobImages, ...staticImages]);
   } catch (error) {
     console.error("Gallery API error:", error);
     res.status(500).json({ error: "Unable to load gallery images" });
   }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const gallery = document.getElementById("gallery-display");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtns = document.querySelectorAll('.lightbox-close');
-
-  fetch("/api/gallery")
-    .then(res => res.json())
-    .then(images => {
-      images.forEach(url => {
-        const img = document.createElement("img");
-        img.src = url;
-        img.alt = "Gallery Image";
-        img.className = "gallery-image";
-        img.style.cursor = "pointer";
-
-        img.addEventListener("click", () => {
-          lightboxImg.src = url;
-          lightbox.style.display = "flex";
-          document.body.style.overflow = "hidden";
-        });
-
-        gallery.appendChild(img);
-      });
-    })
-    .catch(err => console.error("Error loading gallery:", err));
-
-  // Close handlers
-  closeBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      lightbox.style.display = "none";
-      document.body.style.overflow = "";
-    });
-  });
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
-      document.body.style.overflow = "";
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      lightbox.style.display = "none";
-      document.body.style.overflow = "";
-    }
-  });
-});
+};
