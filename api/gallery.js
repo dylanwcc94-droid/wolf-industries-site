@@ -21,12 +21,17 @@ async function getBlobGalleryImages() {
     return [];
   }
 
-  const { list } = await import("@vercel/blob");
-  const { blobs } = await list({ prefix: "gallery/" });
+  try {
+    const { list } = await import("@vercel/blob");
+    const { blobs } = await list({ prefix: "gallery/" });
 
-  return blobs
-    .filter((blob) => IMAGE_EXTENSIONS.test(blob.pathname))
-    .map((blob) => blob.url);
+    return blobs
+      .filter((blob) => IMAGE_EXTENSIONS.test(blob.pathname))
+      .map((blob) => blob.url);
+  } catch (error) {
+    console.error("Blob gallery listing error:", error);
+    return [];
+  }
 }
 
 module.exports = async function handler(req, res) {
