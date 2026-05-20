@@ -272,6 +272,11 @@ footer:hover {
   transition: transform 0.2s ease;
 }
 
+.gallery-image.is-selected {
+  outline: 3px solid #4dff5f;
+  outline-offset: 4px;
+}
+
 #gallery-display img {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -282,6 +287,47 @@ footer:hover {
 
 .gallery-image:hover {
   transform: scale(1.05);
+}
+
+.inline-gallery-viewer {
+  grid-column: 1 / -1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 180px;
+  margin: 4px auto 18px;
+  padding: 16px;
+  background: rgba(0,0,0,0.72);
+  border-radius: 10px;
+  width: min(100%, 920px);
+  overflow: hidden;
+}
+
+.inline-gallery-viewer img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: min(76dvh, 720px);
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.inline-gallery-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 2;
+  border: 0;
+  background: rgba(0,0,0,0.65);
+  color: white;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.inline-gallery-close:hover {
+  color: #4dff5f;
 }
 
 /* Lightbox overlay */
@@ -374,6 +420,16 @@ footer:hover {
 }
 
 @media (max-width: 600px) {
+  .inline-gallery-viewer {
+    min-height: 140px;
+    padding: 12px;
+    margin: 0 auto 16px;
+  }
+
+  .inline-gallery-viewer img {
+    max-height: 72dvh;
+  }
+
   .lightbox {
     padding: 16px;
   }

@@ -4,19 +4,57 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxImg = document.getElementById("lightbox-img");
   const closeBtns = document.querySelectorAll(".lightbox-close");
 
-  if (gallery && lightbox && lightboxImg && closeBtns.length > 0) {
-    const openLightbox = (url) => {
-      lightboxImg.src = url;
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+  if (gallery) {
+    let inlineViewer = null;
+    let selectedImage = null;
+
+    const closeInlineViewer = () => {
+      if (inlineViewer) {
+        inlineViewer.remove();
+        inlineViewer = null;
+      }
+
+      if (selectedImage) {
+        selectedImage.classList.remove("is-selected");
+        selectedImage = null;
+      }
     };
 
-    const closeLightbox = () => {
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      lightboxImg.src = "";
-      document.body.style.overflow = "";
+    const openInlineViewer = (image) => {
+      const url = image.dataset.fullImage || image.src;
+
+      if (selectedImage === image) {
+        closeInlineViewer();
+        return;
+      }
+
+      closeInlineViewer();
+
+      selectedImage = image;
+      selectedImage.classList.add("is-selected");
+
+      inlineViewer = document.createElement("div");
+      inlineViewer.className = "inline-gallery-viewer";
+
+      const closeButton = document.createElement("button");
+      closeButton.className = "inline-gallery-close";
+      closeButton.type = "button";
+      closeButton.setAttribute("aria-label", "Close image");
+      closeButton.textContent = "×";
+
+      const expandedImage = document.createElement("img");
+      expandedImage.src = url;
+      expandedImage.alt = "Selected gallery image";
+
+      inlineViewer.append(closeButton, expandedImage);
+
+      image.insertAdjacentElement("afterend", inlineViewer);
+
+      expandedImage.addEventListener("load", () => {
+        inlineViewer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }, { once: true });
+
+      closeButton.addEventListener("click", closeInlineViewer);
     };
 
     fetch("/api/gallery")
@@ -47,24 +85,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const image = event.target.closest(".gallery-image");
 
       if (image) {
-        openLightbox(image.dataset.fullImage || image.src);
-      }
-    });
-
-    closeBtns.forEach((btn) => {
-      btn.addEventListener("click", closeLightbox);
-    });
-
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
+        openInlineViewer(image);
       }
     });
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lightbox.classList.contains("is-open")) {
-        closeLightbox();
+      if (e.key === "Escape") {
+        closeInlineViewer();
       }
+    });
+  }
+
+  if (lightbox && lightboxImg && closeBtns.length > 0) {
+    closeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImg.src = "";
+        document.body.style.overflow = "";
+      });
     });
   }
 });
