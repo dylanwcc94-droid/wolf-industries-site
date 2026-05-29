@@ -419,6 +419,21 @@ footer:hover {
   color: #ff8585;
 }
 
+.about {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about h2 {
+  margin-bottom: 20px;
+}
+
+.about p {
+  max-width: 800px;
+  margin: 10px auto;
+  line-height: 1.6;
+}
+
 @media (max-width: 600px) {
   .inline-gallery-viewer {
     min-height: 140px;
