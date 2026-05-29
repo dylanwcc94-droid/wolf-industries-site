@@ -430,7 +430,7 @@ footer:hover {
 
 .about p {
   max-width: 800px;
-  margin: 10px auto;
+  margin: 0 auto;
   line-height: 1.6;
 }
 
