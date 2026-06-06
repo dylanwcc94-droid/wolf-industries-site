@@ -34,8 +34,8 @@ img {
   padding: 10px;
   text-align: center;
   z-index: 1000;
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: none; /* disable backdrop-filter for navbar */
+  backdrop-filter: none;
 }
 
 .navbar a {
@@ -56,8 +56,8 @@ img {
 .hero {
   padding: 100px 20px;
   background: rgba(0,0,0,0.4);
-  -webkit-backdrop-filter: blur(2px); /* enable backdrop-filter */
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: none; /* disable backdrop-filter */
+  backdrop-filter: none;
 }
 
 .logo {
@@ -76,8 +76,8 @@ img {
 .services {
   padding: 100px 20px;
   background: rgba(0,0,0,0.4);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .services h2 {
@@ -97,8 +97,8 @@ img {
   background: rgba(0,0,0,0.4);
   border-radius: 10px;
   padding: 22px;
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .service-card h3 {
@@ -111,8 +111,8 @@ img {
   padding: 100px 20px;
   text-align: center;
   background: rgba(0,0,0,0.4); /* unified transparency */
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .contact-grid {
@@ -130,8 +130,8 @@ img {
   padding: 20px;
   border-radius: 10px;
   width: 250px;  
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .contact-item .icon {
@@ -182,8 +182,8 @@ footer {
   color: white;
   text-shadow: 0 0 2px #4dff5f, 0 0 8px #4dff5f, 0 0 12px #4dff5f;
   transition: text-shadow 0.3s;   
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 footer:hover {
@@ -195,8 +195,8 @@ footer:hover {
   padding: 100px 20px;
   text-align: center;
   background: rgba(0,0,0,0.4); /* unified transparency */
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .bio-content {
@@ -214,8 +214,8 @@ footer:hover {
 .gallery {
   padding: 100px 20px;
   background: rgba(0,0,0,0.4); /* unified transparency */
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .card-grid {
@@ -230,8 +230,8 @@ footer:hover {
   background: rgba(0,0,0,0.4);
   border-radius: 10px;
   padding: 20px;   
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .card-image {
@@ -260,8 +260,8 @@ footer:hover {
   max-width: 950px;
   margin: 30px auto 0;
   justify-items: center; /* center images in their grid cells */
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 /* Gallery images */
 .gallery-image {
@@ -343,8 +343,8 @@ footer:hover {
   align-items: center;
   z-index: 9999;
   overflow: hidden;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .lightbox.is-open {
