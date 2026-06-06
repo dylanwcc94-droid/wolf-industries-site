@@ -56,8 +56,8 @@ img {
 .hero {
   padding: 100px 20px;
   background: rgba(0,0,0,0.4);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: none; /* disable backdrop-filter for hero to maintain text clarity */
+  backdrop-filter: none; /* disable backdrop-filter for hero to maintain text clarity */
 }
 
 .logo {
@@ -76,8 +76,8 @@ img {
 .services {
   padding: 100px 20px;
   background: rgba(0,0,0,0.4);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .services h2 {
@@ -97,8 +97,8 @@ img {
   background: rgba(0,0,0,0.4);
   border-radius: 10px;
   padding: 22px;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .service-card h3 {
@@ -111,8 +111,8 @@ img {
   padding: 100px 20px;
   text-align: center;
   background: rgba(0,0,0,0.4); /* unified transparency */
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .contact-grid {
@@ -130,8 +130,8 @@ img {
   padding: 20px;
   border-radius: 10px;
   width: 250px;  
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .contact-item .icon {
